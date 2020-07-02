@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'accounts',
+    'blogposts',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'IndigoTortoise.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates','accounts/templates'],
+        'DIRS': ['templates','accounts/templates','blogposts/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

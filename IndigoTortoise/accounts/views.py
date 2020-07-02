@@ -13,7 +13,6 @@ def accounts_home(request):
 
 
 
-
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)

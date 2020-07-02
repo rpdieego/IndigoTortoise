@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Articles</h1>
+    <p class="lead">Here are some articles and notebooks I've written during my studies and pratices in Data Science, Machine Learning and coding in general.</p>
+    <hr class="my-4">
+    <p></p>
+  </div>
+
+
+<!-- List of articles in a table -->
+
+<table class="table table-hover">
+   <thead class="thead-dark">
+        <tr>
+          <th scope="col">Theme</th>
+          <th scope="col">Title</th>
+          <th scope="col">Link</th>
+          <th scope="col">Category</th>
+          <th scope="col">Date Posted</th>
+          {% if perms.auth.change_user %}
+          <th scope="col">Delete Post</th>
+          {% endif %}
+        </tr>        
+    </thead>
+    <tbody>
+
+        <tr>
+        {% for article in all_articles %}
+            <td>{{article.shortname}}</td>
+            <td>{{article.title}}</td>
+            <td><a href="{{article.link}}">Click here to access the article </a></td>
+            <td>{{article.category}}</td>
+            <td>{{article.time_date}}</td>
+            {% if perms.auth.change_user %}
+            <th scope="col"> <a href="{% url 'article_delete' article.id %}">Delete</a> </th>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Form to insert a new article - ALLOWED USERS ONLY -->
+
+{% if perms.auth.change_user %}
+
+    <br><h3>Add a new article to the list (allowed users only)</h3><br>
+
+    <form action="{% url 'articles' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">            
+            <label for="formGroupExampleInput">Shortname: </label><br>
+            <input type="text" class="from-control" name="shortname"><br>
+        </div>   
+        <div class="form-group"> 
+            <label for="formGroupExampleInput">Title: </label><br>
+            <input type="text" name="title"><br>
+        </div>  
+        <div class="form-group"> 
+            <label for="formGroupExampleInput">Hyperlink: </label><br>
+            <input type="text" name="link"><br>
+        </div>  
+        <div class="form-group"> 
+            <label for="formGroupExampleInput">Category: </label><br>
+            <input type="text" name="category"><br>
+        </div>  
+            <input type="submit" value="Submit Article">
+    </form>
+
+{% endif %}
+
+{% endblock %}
