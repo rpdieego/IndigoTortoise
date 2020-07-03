@@ -1,11 +1,41 @@
 
 #socialMidiaIcons{
-    height: 150px;
-    width: 150px;
+    align-content: center;
+    text-align: center;
+    height: 100px;
+    width: 100px;
 }
 
 .socialMidiaCards{
     text-align: center;
-    image
-
+    align-items: center;
+    padding-left: 900px;
+    align-content: center;
 }
+
+#socialMidiaText{
+    text-align: center;
+}
+
+.loginContainer{
+    align-items: center;
+    padding: 30px;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgb(55, 68, 77);
+    color: white;
+    border-radius: 10px;
+}
+
+.loginContainer h3{
+    text-align: center;
+    
+}
+
+.loginContainer button{
+    text-align: center;
+    align-content: center;
+    
+}
+
+

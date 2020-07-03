@@ -28,8 +28,8 @@ DEBUG = True
 '''
 empty for tests on my personal computer / IP address of my production server
 '''
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['18.228.222.100']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['18.228.222.100']
 
 
 # Application definition
